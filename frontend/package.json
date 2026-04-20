@@ -1,0 +1,72 @@
+{
+  "name": "kuberxflow-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://kuberxflow.com",
+  "description": "Enterprise-grade Kubernetes auto-scaling and auto-healing platform",
+  "author": "KubeFlowX Team",
+  "license": "MIT",
+  "keywords": [
+    "kubernetes",
+    "auto-scaling",
+    "auto-healing",
+    "container-orchestration",
+    "cloud-native",
+    "devops",
+    "monitoring",
+    "deployment",
+    "react",
+    "pwa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prince-up/kuberxflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prince-up/kuberxflow/issues"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "framer-motion": "^10.12.16",
+    "lucide-react": "^0.263.1",
+    "@heroicons/react": "^2.0.18"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "serve -s build -l 3000",
+    "analyze": "npm run build && npx serve -s build -l 3000"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:8000",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
+}

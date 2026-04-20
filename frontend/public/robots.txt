@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Block access to sensitive files
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow crawling of main content
+Allow: /
+Allow: /features
+Allow: /demo
+Allow: /about
+
+# Sitemap
+Sitemap: https://kuberxflow.com/sitemap.xml

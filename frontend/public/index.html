@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="KubeFlowX - Enterprise-grade Kubernetes auto-scaling and auto-healing platform. Deploy, scale, and monitor your applications with intelligent orchestration." />
+    <meta name="keywords" content="Kubernetes, auto-scaling, auto-healing, container orchestration, cloud native, DevOps, monitoring, deployment" />
+    <meta name="author" content="KubeFlowX Team" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kuberxflow.com/" />
+    <meta property="og:title" content="KubeFlowX - Kubernetes Auto-Scaling Platform" />
+    <meta property="og:description" content="Enterprise-grade Kubernetes auto-scaling and auto-healing platform for modern cloud applications." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kuberxflow.com/" />
+    <meta property="twitter:title" content="KubeFlowX - Kubernetes Auto-Scaling Platform" />
+    <meta property="twitter:description" content="Enterprise-grade Kubernetes auto-scaling and auto-healing platform for modern cloud applications." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Performance & Security -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- PWA -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kuberxflow.com/" />
+
+    <title>KubeFlowX - Enterprise Kubernetes Auto-Scaling Platform</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="%PUBLIC_URL%/logo192.png" as="image">
+    <link rel="preload" href="%PUBLIC_URL%/favicon.ico" as="image">
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>KubeFlowX</h1>
+        <p>You need to enable JavaScript to run this application.</p>
+        <p>Please enable JavaScript in your browser settings and refresh the page.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+
+    <!-- Performance monitoring -->
+    <script>
+      // Performance observer for Core Web Vitals
+      if ('PerformanceObserver' in window) {
+        try {
+          // Largest Contentful Paint
+          new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              console.log('LCP:', entry.startTime);
+            }
+          }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+          // First Input Delay
+          new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              console.log('FID:', entry.processingStart - entry.startTime);
+            }
+          }).observe({ entryTypes: ['first-input'] });
+
+          // Cumulative Layout Shift
+          new PerformanceObserver((list) => {
+            let clsValue = 0;
+            for (const entry of list.getEntries()) {
+              if (!entry.hadRecentInput) {
+                clsValue += entry.value;
+              }
+            }
+            console.log('CLS:', clsValue);
+          }).observe({ entryTypes: ['layout-shift'] });
+        } catch (e) {
+          console.log('Performance monitoring not supported');
+        }
+      }
+    </script>
+  </body>
+</html>

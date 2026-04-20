@@ -17,6 +17,7 @@ spec:
       containers:
       - name: kubeflowx
         image: kubeflowx:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8000
         resources:
