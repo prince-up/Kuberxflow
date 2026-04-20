@@ -1,191 +1,122 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Activity, ShieldCheck, Cpu, Globe, BarChart3, Layers } from 'lucide-react';
 import './Features.css';
 
 const Features = () => {
   const features = [
     {
-      icon: '🔄',
-      title: 'Self-Healing',
-      description: 'Intelligent liveness and readiness probes ensure automatic recovery from failures with zero downtime.',
-      gradient: 'from-blue-500 to-purple-600',
-      stats: '99.9% Uptime'
+      icon: <Activity size={32} />,
+      title: "Intelligent Auto-Scaling",
+      description: "Dynamically adjust cluster resources based on real-time traffic patterns and predictive analysis.",
+      color: "#6366f1"
     },
     {
-      icon: '📈',
-      title: 'Smart Scaling',
-      description: 'AI-powered horizontal pod autoscaling based on CPU, memory, and custom metrics for optimal performance.',
-      gradient: 'from-green-500 to-teal-600',
-      stats: '10x Performance'
+      icon: <ShieldCheck size={32} />,
+      title: "Proactive Self-Healing",
+      description: "Automatic detection and recovery of failed nodes or pods before users experience any downtime.",
+      color: "#10b981"
     },
     {
-      icon: '📊',
-      title: 'Observability',
-      description: 'Comprehensive monitoring stack with Prometheus metrics, Grafana dashboards, and real-time alerting.',
-      gradient: 'from-orange-500 to-red-600',
-      stats: '360° Visibility'
+      icon: <Cpu size={32} />,
+      title: "Resource Optimization",
+      description: "Advanced bin-packing algorithms to maximize CPU/Memory utilization and reduce cloud costs.",
+      color: "#f59e0b"
     },
     {
-      icon: '🐳',
-      title: 'Container Optimized',
-      description: 'Multi-stage Docker builds with security scanning, vulnerability assessment, and performance optimization.',
-      gradient: 'from-cyan-500 to-blue-600',
-      stats: '50% Smaller Images'
+      icon: <Globe size={32} />,
+      title: "Multi-Cloud Mesh",
+      description: "Seamlessly orchestrate workloads across AWS, GCP, and Azure with a single unified interface.",
+      color: "#06b6d4"
     },
     {
-      icon: '⚡',
-      title: 'High Performance',
-      description: 'FastAPI backend with async processing, caching layers, and optimized database connections.',
-      gradient: 'from-yellow-500 to-orange-600',
-      stats: '<10ms Response'
+      icon: <BarChart3 size={32} />,
+      title: "Deep Observability",
+      description: "Full-stack monitoring with eBPF-powered metrics and distributed tracing out of the box.",
+      color: "#ec4899"
     },
     {
-      icon: '🔒',
-      title: 'Enterprise Security',
-      description: 'End-to-end encryption, RBAC, audit logging, and compliance with industry security standards.',
-      gradient: 'from-purple-500 to-pink-600',
-      stats: 'Zero Trust'
+      icon: <Layers size={32} />,
+      title: "Zero-Downtime Updates",
+      description: "Automated canary and blue-green deployments with built-in rollback capabilities.",
+      color: "#8b5cf6"
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.9
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
-      }
-    }
-  };
-
   return (
-    <section className="features">
-      <div className="features-background">
-        <div className="features-gradient"></div>
-      </div>
-
-      <div className="features-container">
-        <motion.div
-          className="features-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
+    <section className="features section-padding" id="features">
+      <div className="container">
+        <div className="section-header">
+          <motion.span 
             className="section-badge"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span>✨ Features</span>
-          </motion.div>
+            Capabilities
+          </motion.span>
+          <motion.h2 
+            className="section-title"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            Engineered for <span className="text-gradient">Reliability</span>
+          </motion.h2>
+          <motion.p 
+            className="section-subtitle"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Scale your infrastructure with enterprise-grade tools designed to handle 
+            millions of requests with absolute precision.
+          </motion.p>
+        </div>
 
-          <h2>Enterprise-Grade Capabilities</h2>
-          <p>
-            Built for production environments with industry-leading reliability,
-            security, and performance standards.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="features-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {features.map((feature, index) => (
+        <div className="features-grid">
+          {features.map((feature, i) => (
             <motion.div
-              key={index}
-              className="feature-card"
-              variants={cardVariants}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.2 }
+              key={i}
+              className="feature-card glass-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ 
+                rotateX: -5, 
+                rotateY: 5, 
+                z: 20,
+                transition: { duration: 0.2 } 
               }}
-              whileTap={{ scale: 0.98 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="feature-header">
-                <motion.div
-                  className="feature-icon"
-                  whileHover={{
-                    scale: 1.1,
-                    rotate: 5,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  <span className="icon-emoji">{feature.icon}</span>
-                  <div className="icon-glow"></div>
-                </motion.div>
-
-                <div className="feature-stats">
-                  {feature.stats}
-                </div>
+              <div 
+                className="feature-icon" 
+                style={{ '--icon-color': feature.color }}
+              >
+                {feature.icon}
+                <div className="icon-glow"></div>
               </div>
-
-              <div className="feature-content">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-
-              <div className="feature-footer">
-                <motion.div
-                  className="feature-gradient"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                ></motion.div>
+              <h3 className="feature-title">{feature.title}</h3>
+              <p className="feature-description">{feature.description}</p>
+              <div className="feature-link">
+                Learn more <ChevronRight size={16} />
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="features-cta"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="cta-content">
-            <h3>Ready to Deploy?</h3>
-            <p>Get started with KubeFlowX in minutes</p>
-            <motion.button
-              className="cta-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span>Start Free Trial</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </motion.button>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
+
+const ChevronRight = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+);
 
 export default Features;

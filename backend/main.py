@@ -1,8 +1,18 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import psutil
 import uvicorn
 
 app = FastAPI(title="KubeFlowX API", version="1.0.0")
+
+# Enable CORS for cross-device testing
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Allow all origins for easier testing
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def health_check():
